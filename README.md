@@ -5,8 +5,13 @@ Build tool = `Maven`
 
 This is a `Cucumber BDD` framework.
 
-## To run all tests:
+## To run all tests either with:
 `mvn test -Dcucumber.options="--tags @regression"`
+
+## or:
+` ./run_chrome_tests.sh`
+
+
 
 ## To run a particular test scenario:
 Tag the scenario with @<tag name> and run:
