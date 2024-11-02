@@ -3,6 +3,7 @@ package com.CBeebies.stepDefs;
 import com.CBeebies.pages.CarouselPage;
 import com.CBeebies.utilities.ConfigurationReader;
 import com.CBeebies.utilities.*;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,10 +15,11 @@ public class Steps {
     CarouselPage carouselPage = new CarouselPage();
 
     @Given("user is on {string} page")
-    public void user_is_on_page(String pageName) {
+    public void user_is_on_page(String pageName) throws InterruptedException {
         Driver.get().get(ConfigurationReader.get("urlWithoutAnimation"));
         BrowserUtils.waitForPageToLoad(20);
         assertEquals(Driver.get().getTitle(), pageName);
+        Thread.sleep(5);
     }
 
     @When("user clicks on {string} navigation button")
@@ -50,7 +52,7 @@ public class Steps {
 
     @When("user wants to interact with {string}")
     public void user_wants_to_interact_with(String desiredGame) throws InterruptedException {
-        Thread.sleep(3);
+        Thread.sleep(5);
         System.out.println("desiredGame = " + desiredGame);
         BrowserUtils.waitForPageToLoad(20);
 
@@ -66,5 +68,12 @@ public class Steps {
     public void user_is_on_game(String nameOfTheGame) {
         String expectedUrl = "https://baseplates.uap.int.api.bbci.co.uk/playtime-island/preview/index.html?animations=off#/brand/" + nameOfTheGame;
         assertEquals(expectedUrl, Driver.get().getCurrentUrl());
+    }
+    @And("user downloads {string} game")
+    public void user_downloads_game(String nameOfTheGame) throws InterruptedException {
+        System.out.println("nameOfTheGame = " + nameOfTheGame);
+        carouselPage.downloadSupertato();
+        Thread.sleep(6);
+        System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
     }
 }

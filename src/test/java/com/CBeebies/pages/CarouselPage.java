@@ -7,9 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.lang.reflect.Field;
-
-public class CarouselPage {
+public class CarouselPage extends Base{
     public CarouselPage() {
         PageFactory.initElements(Driver.get(), this);
     }

@@ -20,3 +20,4 @@ Feature: Carousel tests
     Given user is on "Playtime Island Preview" page
     When user wants to interact with "supertato"
     Then user is on "supertato" game
+    And user downloads "supertato" game
