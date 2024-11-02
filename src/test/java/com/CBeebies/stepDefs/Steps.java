@@ -71,9 +71,8 @@ public class Steps {
     }
     @And("user downloads {string} game")
     public void user_downloads_game(String nameOfTheGame) throws InterruptedException {
-        System.out.println("nameOfTheGame = " + nameOfTheGame);
+        Thread.sleep(6);
         carouselPage.downloadSupertato();
         Thread.sleep(6);
-        System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
     }
 }
