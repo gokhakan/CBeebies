@@ -18,4 +18,5 @@ Feature: Carousel tests
   @wip
   Scenario: Game Download and Menu Navigation
     Given user is on "Playtime Island Preview" page
-    When user wants to interact with "vegesaurs"
+    When user wants to interact with "supertato"
+    Then user is on "supertato" game

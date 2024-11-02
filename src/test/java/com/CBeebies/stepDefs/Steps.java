@@ -49,8 +49,22 @@ public class Steps {
     }
 
     @When("user wants to interact with {string}")
-    public void user_wants_to_interact_with(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }}
+    public void user_wants_to_interact_with(String desiredGame) throws InterruptedException {
+        Thread.sleep(3);
+        System.out.println("desiredGame = " + desiredGame);
+        BrowserUtils.waitForPageToLoad(20);
 
+        if(carouselPage.getGameElementById(desiredGame).isDisplayed()){
+            carouselPage.getGameElementById(desiredGame).click();
+            BrowserUtils.waitFor(5);
+        }else{
+            System.out.println("ERROR");
+        }
+    }
+
+    @Then("user is on {string} game")
+    public void user_is_on_game(String nameOfTheGame) {
+        String expectedUrl = "https://baseplates.uap.int.api.bbci.co.uk/playtime-island/preview/index.html?animations=off#/brand/" + nameOfTheGame;
+        assertEquals(expectedUrl, Driver.get().getCurrentUrl());
+    }
+}
