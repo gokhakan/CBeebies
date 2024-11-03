@@ -9,8 +9,7 @@ This is a `Cucumber BDD` framework.
 `mvn test -Dcucumber.options="--tags @regression"`
 
 ## or:
-` ./run_chrome_tests.sh`
-
+` ./run_chrome_tests.sh` after making the script executable with `chmod +x run_chrome_tests.sh`
 
 
 ## To run a particular test scenario:
